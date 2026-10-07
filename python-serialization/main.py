@@ -1,16 +1,6 @@
 #!/usr/bin/env python3
-from task_01_pickle import CustomObject
+from task_02_csv import convert_csv_to_json
 
-
-# Create an instance of CustomObject
-obj = CustomObject(name="John", age=25, is_student=True)
-print("Original Object:")
-obj.display()
-
-# Serialize the object
-obj.serialize("object.pkl")
-
-# Deserialize the object into a new instance
-new_obj = CustomObject.deserialize("object.pkl")
-print("\nDeserialized Object:")
-new_obj.display()
+csv_file = "data.csv"
+print(convert_csv_to_json(csv_file))
+print(f"Data from {csv_file} has been converted to data.json")
