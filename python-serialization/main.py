@@ -1,6 +1,20 @@
 #!/usr/bin/env python3
-from task_02_csv import convert_csv_to_json
+from task_03_xml import serialize_to_xml, deserialize_from_xml
 
-csv_file = "data.csv"
-print(convert_csv_to_json(csv_file))
-print(f"Data from {csv_file} has been converted to data.json")
+def main():
+    sample_dict = {
+        'name': 'John',
+        'age': '28',
+        'city': 'New York'
+    }
+
+    xml_file = "data.xml"
+    serialize_to_xml(sample_dict, xml_file)
+    print(f"Dictionary serialized to {xml_file}")
+
+    deserialized_data = deserialize_from_xml(xml_file)
+    print("\nDeserialized Data:")
+    print(deserialized_data)
+
+if __name__ == "__main__":
+    main()
