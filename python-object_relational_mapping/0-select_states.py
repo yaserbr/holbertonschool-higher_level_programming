@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""List all states from a MySQL database."""
+"""This module lists all states from a MySQL database."""
 
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    myconnection = MySQLdb.connect(
+    connection = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
@@ -14,13 +14,11 @@ if __name__ == "__main__":
         charset="utf8",
     )
 
-    cursor = myconnection.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
 
-    data = cursor.fetchall()
-
-    for row in data:
+    for row in cursor.fetchall():
         print(row)
 
     cursor.close()
-    myconnection.close()
+    connection.close()
