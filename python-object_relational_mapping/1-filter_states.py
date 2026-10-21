@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """This module lists all states from a MySQL database."""
 
 import MySQLdb
@@ -16,3 +18,5 @@ c = connection.cursor()
 c.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;")
 for data in c.fetchall():
     print(data)
+c.close()
+connection.close()
